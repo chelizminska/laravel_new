@@ -207,7 +207,7 @@ class BaseController extends Controller
             }
         }
         else{
-            $child_pages = Page::where('id', '=', $page->parent_id)->get();
+            $child_pages = Page::where('parent_id', '=', $page->id)->get();
             foreach($child_pages as $child_page)
             {
                 $messages = ForumPageMessage::where('page_id', '=', $child_page->id);

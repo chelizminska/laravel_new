@@ -125,7 +125,7 @@ class BaseController extends Controller
         $user = User::where('user_name', '=', Input::get('user'))->first();
         $user->messages_amount++;
         $user->save();
-        return redirect('/forum/'.Input::get('page_id').'?page_number='.Input::get('page_number'));
+        return redirect('/forum?id='.Input::get('page_id').'&page_number='.Input::get('page_number'));
     }
 
     public function getAddForumTopicAction()
@@ -151,7 +151,7 @@ class BaseController extends Controller
         $parent_page = Page::where('id', '=', Input::get('parent_page_id'))->first();
         $parent_page->child_amount++;
         $parent_page->save();
-        return redirect('/forum/'.$page_id.'?page_number=1');
+        return redirect('/forum?id='.$page_id.'&page_number=1');
     }
 
     public function showPersonalInfoAction()
